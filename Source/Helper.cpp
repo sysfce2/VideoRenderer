@@ -416,7 +416,7 @@ void CopyPlaneAsIs(const UINT lines, BYTE* dst, UINT dst_pitch, const BYTE* src,
 		return;
 	}
 
-	const UINT linesize = std::min((UINT)abs(src_pitch), dst_pitch);
+	const UINT linesize = std::min<UINT>(abs(src_pitch), dst_pitch);
 
 	for (UINT y = 0; y < lines; ++y) {
 		memcpy(dst, src, linesize);
@@ -432,7 +432,7 @@ void CopyGpuFrame_SSE41(const UINT lines, BYTE* dst, UINT dst_pitch, const BYTE*
 		return;
 	}
 
-	const UINT linesize = std::min((UINT)abs(src_pitch), dst_pitch);
+	const UINT linesize = std::min<UINT>(abs(src_pitch), dst_pitch);
 
 	for (UINT y = 0; y < lines; ++y) {
 		gpu_memcpy(dst, src, linesize);

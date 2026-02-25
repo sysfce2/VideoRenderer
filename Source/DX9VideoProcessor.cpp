@@ -3242,7 +3242,7 @@ STDMETHODIMP CDX9VideoProcessor::SetAlphaBitmap(const MFVideoAlphaBitmap *pBmpPa
 				if (bm.bmWidthBytes == lr.Pitch) {
 					memcpy(lr.pBits, bm.bmBits, bm.bmWidthBytes * bm.bmHeight);
 				} else {
-					LONG linesize = std::min(bm.bmWidthBytes, (LONG)lr.Pitch);
+					LONG linesize = std::min<LONG>(bm.bmWidthBytes, lr.Pitch);
 					BYTE* src = (BYTE*)bm.bmBits;
 					BYTE* dst = (BYTE*)lr.pBits;
 					for (LONG y = 0; y < bm.bmHeight; ++y) {
